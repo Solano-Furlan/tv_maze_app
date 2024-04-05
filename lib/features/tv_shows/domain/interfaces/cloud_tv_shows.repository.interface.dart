@@ -1,0 +1,16 @@
+import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+
+abstract class ICloudTvShowsRepository {
+  Future<List<ITvShow>> getTvShows({
+    required int page,
+  });
+  Future<List<ITvShow>> getTvShowsWithSearch({
+    required String search,
+  });
+  Future<ITvShow> getTvShow({
+    required String tvShowId,
+  });
+  Future<List<ITvShow>> getTvShowEpisodes({
+    required String tvShowId,
+  });
+}
