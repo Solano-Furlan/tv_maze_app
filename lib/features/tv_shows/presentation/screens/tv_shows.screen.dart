@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tv_maze_app/core/dependencies/dependencies.dart';
 import 'package:tv_maze_app/core/design_system/widgets/fields/search_field.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/indicators/error_indicator.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/indicators/loading_indicator.widget.dart';
@@ -8,6 +9,7 @@ import 'package:tv_maze_app/core/design_system/widgets/layouts/main_header.widge
 import 'package:tv_maze_app/core/design_system/widgets/layouts/main_scaffold.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/pagination/infinity_scroll_pagination.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/texts/header_text.widget.dart';
+import 'package:tv_maze_app/core/navigation/services/navigation.service.dart';
 import 'package:tv_maze_app/features/tv_shows/presentation/widgets/tv_show_card.widget.dart';
 import 'package:tv_maze_app/features/tv_shows/state/tv_shows/tv_shows.cubit.dart';
 import 'package:tv_maze_app/features/tv_shows/state/tv_shows/tv_shows.state.dart';
@@ -54,7 +56,10 @@ class _TvShowsScreenState extends State<TvShowsScreen> {
               bottomExtraSpace: 100,
               itemsLenght: state.tvShows.length,
               itemBuilder: (BuildContext context, int index) => TvShowCard(
-                onPressed: () {},
+                onPressed: () =>
+                    getIt<AppNavigationService>().routeToSelectedTvShow(
+                  tvShowId: state.tvShows[index].id,
+                ),
                 tvShow: state.tvShows[index],
               ),
               onFetchMore: context.read<TvShowsCubit>().getTvShowsNextPage,

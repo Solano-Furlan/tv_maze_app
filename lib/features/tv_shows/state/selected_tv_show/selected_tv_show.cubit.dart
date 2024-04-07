@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze_app/features/tv_shows/data/repositories/cloud_tv_shows.repository.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/interfaces/episode.interface.dart';
 import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
 import 'package:tv_maze_app/features/tv_shows/state/selected_tv_show/selected_tv_show.state.dart';
 
@@ -20,8 +21,15 @@ class SelectedTvShowCubit extends Cubit<SelectedTvShowState> {
         tvShowId: tvShowId,
       );
 
+      final List<IEpisode> tvShowEpisodes =
+          await cloudTvShowsRepository.getTvShowEpisodes(
+        tvShowId: tvShowId,
+      );
+
       emit(SelectedTvShowLoadedState(
-        tvShow: tvShow,
+        tvShow: tvShow.copyWith(
+          episodes: tvShowEpisodes,
+        ),
       ));
     } catch (_) {
       emit(SelectedTvShowErrorState());
