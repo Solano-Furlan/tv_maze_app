@@ -2,6 +2,11 @@
 
 TV Shows & Actors Search: Instantly find and save your favorite shows and actors with Tv Maze app.
 
+## Video Overview
+
+[![Walkthrough Video](https://img.youtube.com/vi/HUzn7Ibt84g/0.jpg)](https://www.youtube.com/watch?v=HUzn7Ibt84g)
+
+
 ## Main Features
 * Search & view Tv Shows details (summarry, episode, etc).
 * Save & view your favotrite Tv Shows.
