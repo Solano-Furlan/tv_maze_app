@@ -4,7 +4,7 @@ import 'package:tv_maze_app/core/design_system/theme/colors.dart';
 import 'package:tv_maze_app/core/design_system/widgets/buttons/back_button.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/buttons/button.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/buttons/icon_button.widget.dart';
-import 'package:tv_maze_app/core/design_system/widgets/layouts/bottom_app_bar.dart';
+import 'package:tv_maze_app/core/design_system/widgets/layouts/bottom_app_bar.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/layouts/main_header.widget.dart';
 
 class UIMainScaffold extends StatelessWidget {

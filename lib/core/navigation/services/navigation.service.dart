@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
+import 'package:tv_maze_app/core/navigation/routes/actors.screen.dart';
 import 'package:tv_maze_app/core/navigation/routes/tv_shows.routes.dart';
 
 class AppNavigationService {
@@ -49,5 +50,9 @@ class AppNavigationService {
 
   void routeToFavoriteTvShows() => _routeTo(
         TvShowsRoutes.favoriteTvShowsRoute,
+      );
+
+  void routeToActors() => _routeTo(
+        ActorsRoutes.actorsRoute,
       );
 }

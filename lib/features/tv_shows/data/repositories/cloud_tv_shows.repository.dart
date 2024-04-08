@@ -10,6 +10,7 @@ class CloudTvShowsRepository extends ICloudTvShowsRepository {
   });
 
   final Dio httpClient;
+
   @override
   Future<List<ITvShow>> getTvShows({
     required int page,
@@ -17,7 +18,7 @@ class CloudTvShowsRepository extends ICloudTvShowsRepository {
     final List<ITvShow> tvShows = [];
 
     final Response<dynamic> res = await httpClient.get(
-      '/shows',
+      '/shows?page=$page',
     );
 
     for (final Map<String, dynamic> mapData in res.data) {
