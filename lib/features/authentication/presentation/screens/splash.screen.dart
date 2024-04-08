@@ -3,6 +3,8 @@ import 'package:tv_maze_app/core/dependencies/dependencies.dart';
 import 'package:tv_maze_app/core/design_system/widgets/indicators/loading_indicator.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/layouts/main_scaffold.widget.dart';
 import 'package:tv_maze_app/core/navigation/services/navigation.service.dart';
+import 'package:tv_maze_app/features/settings/data/auth_method.repository.dart';
+import 'package:tv_maze_app/features/settings/domain/enums/auth_method_type.enum.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (isInit) {
       isInit = false;
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        getIt<AppNavigationService>().routeToTvShows();
+        _authenticationCheck();
       });
     }
     super.didChangeDependencies();
@@ -33,5 +35,19 @@ class _SplashScreenState extends State<SplashScreen> {
         child: UILoadingIndicator(),
       ),
     );
+  }
+
+  Future<void> _authenticationCheck() async {
+    try {
+      final List<AuthMethodType> authMethodTypes =
+          await getIt<AuthMethodRepository>().getAuthMethods();
+      if (authMethodTypes.contains(AuthMethodType.pin)) {
+        getIt<AppNavigationService>().routeToAuthentication();
+      } else {
+        getIt<AppNavigationService>().routeToTvShows();
+      }
+    } catch (e) {
+      getIt<AppNavigationService>().routeToTvShows();
+    }
   }
 }

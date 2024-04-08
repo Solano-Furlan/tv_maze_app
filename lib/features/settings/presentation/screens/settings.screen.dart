@@ -108,6 +108,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         controller: _pinController,
                         label: 'PIN (4 Digits)',
                         isRequired: true,
+                        isDisabled:
+                            state.authMethodTypes.contains(AuthMethodType.pin),
                         minLenght: 4,
                         maxLength: 4,
                         keyboardType: TextInputType.number,

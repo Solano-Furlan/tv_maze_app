@@ -37,7 +37,7 @@ class AuthMethodRepository extends IAuthMethodRepository {
 
     await box.put(
       'auth_method_type',
-      authMethodTypes.map((e) => e.name).toList(),
+      authMethodTypes.map((e) => e.name).toSet().toList(),
     );
 
     await box.close();
