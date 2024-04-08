@@ -28,7 +28,7 @@ void main() async {
     test('getActors Unit Test', () async {
       const String getActorsRoute = '/people?page=1';
 
-      httpClientAdapter.onPost(
+      httpClientAdapter.onGet(
         getActorsRoute,
         (server) => server.reply(
           200,

@@ -42,7 +42,7 @@ void main() async {
         act: (ActorsCubit actorsCubit) async {
           const String getActorsRoute = '/people?page=1';
 
-          httpClientAdapter.onPost(
+          httpClientAdapter.onGet(
             getActorsRoute,
             (server) => server.reply(
               200,
@@ -70,7 +70,7 @@ void main() async {
         act: (ActorsCubit actorsCubit) async {
           const String getActorsRoute = '/people?page=1';
 
-          httpClientAdapter.onPost(
+          httpClientAdapter.onGet(
             getActorsRoute,
             (server) => server.reply(
               500,

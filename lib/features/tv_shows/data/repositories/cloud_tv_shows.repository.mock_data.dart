@@ -2,8 +2,8 @@ import 'package:tv_maze_app/features/tv_shows/data/normalizers/tv_shows.reposito
 import 'package:tv_maze_app/features/tv_shows/domain/interfaces/episode.interface.dart';
 import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
 
-class TvShowsResposityMockData {
-  TvShowsResposityMockData._();
+class CloudTvShowsRepositoryMockData {
+  CloudTvShowsRepositoryMockData._();
 
   static const List<Map<String, dynamic>> tvShowsMapData =
       <Map<String, dynamic>>[
