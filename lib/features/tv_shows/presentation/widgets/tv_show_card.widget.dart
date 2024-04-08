@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tv_maze_app/core/design_system/theme/colors.dart';
 import 'package:tv_maze_app/core/design_system/widgets/buttons/core_button.widget.dart';
@@ -77,17 +78,19 @@ class TvShowCard extends StatelessWidget {
                         ],
                       ],
                     ),
-                    Wrap(
-                      spacing: 6,
-                      runSpacing: 6,
-                      children: List.generate(
-                        tvShow.genres.take(3).toList().length,
-                        (int index) => UILabelCard(
-                          backgroundColor: AppColors.black,
-                          text: tvShow.genres[index],
-                          fontSize: 10,
-                          verticalPadding: 4,
-                          horizontalPadding: 8,
+                    IgnorePointer(
+                      child: Wrap(
+                        spacing: 6,
+                        runSpacing: 6,
+                        children: List.generate(
+                          tvShow.genres.take(3).toList().length,
+                          (int index) => UILabelCard(
+                            backgroundColor: AppColors.black,
+                            text: tvShow.genres[index],
+                            fontSize: 10,
+                            verticalPadding: 4,
+                            horizontalPadding: 8,
+                          ),
                         ),
                       ),
                     ),

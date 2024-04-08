@@ -28,61 +28,63 @@ class ActorCard extends StatelessWidget {
         const SizedBox(height: 14),
         UICoreButton(
           onPressed: onPressed,
-          child: Row(
-            children: [
-              Container(
-                height: 60,
-                width: 55,
-                decoration: BoxDecoration(
-                  color: AppColors.dark1,
-                  borderRadius: BorderRadius.circular(16),
+          child: IgnorePointer(
+            child: Row(
+              children: [
+                Container(
+                  height: 60,
+                  width: 55,
+                  decoration: BoxDecoration(
+                    color: AppColors.dark1,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  clipBehavior: Clip.hardEdge,
+                  child: UINetworkImage(
+                    url: actor.imageUrl,
+                  ),
                 ),
-                clipBehavior: Clip.hardEdge,
-                child: UINetworkImage(
-                  url: actor.imageUrl,
-                ),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    UIText(
-                      actor.name,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.white,
-                    ),
-                    if (actor.country != null || actor.birthday != null) ...[
-                      const SizedBox(height: 8),
-                      Wrap(
-                        spacing: 6,
-                        runSpacing: 6,
-                        children: [
-                          if (actor.country != null)
-                            UILabelCard(
-                              backgroundColor: AppColors.black,
-                              text: actor.country!,
-                              fontSize: 10,
-                              verticalPadding: 4,
-                              horizontalPadding: 8,
-                            ),
-                          if (actor.birthday != null)
-                            UILabelCard(
-                              backgroundColor: AppColors.black,
-                              text:
-                                  '${DateHelper.calculateAge(actor.birthday!)} Years',
-                              fontSize: 10,
-                              verticalPadding: 4,
-                              horizontalPadding: 8,
-                            ),
-                        ],
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      UIText(
+                        actor.name,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.white,
                       ),
+                      if (actor.country != null || actor.birthday != null) ...[
+                        const SizedBox(height: 8),
+                        Wrap(
+                          spacing: 6,
+                          runSpacing: 6,
+                          children: [
+                            if (actor.country != null)
+                              UILabelCard(
+                                backgroundColor: AppColors.black,
+                                text: actor.country!,
+                                fontSize: 10,
+                                verticalPadding: 4,
+                                horizontalPadding: 8,
+                              ),
+                            if (actor.birthday != null)
+                              UILabelCard(
+                                backgroundColor: AppColors.black,
+                                text:
+                                    '${DateHelper.calculateAge(actor.birthday!)} Years',
+                                fontSize: 10,
+                                verticalPadding: 4,
+                                horizontalPadding: 8,
+                              ),
+                          ],
+                        ),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         const SizedBox(height: 14),
