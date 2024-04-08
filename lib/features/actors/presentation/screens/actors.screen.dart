@@ -37,12 +37,15 @@ class _ActorsScreenState extends State<ActorsScreen> {
               fontSize: 32,
             ),
             const SizedBox(height: 8),
-            UISearchField(onSearchChanged: (String text) {
-              _seachText = text.trim();
-              context.read<ActorsCubit>().getActors(
-                    search: _seachText.isEmpty ? null : _seachText,
-                  );
-            }),
+            UISearchField(
+              onSearchChanged: (String text) {
+                _seachText = text.trim();
+                context.read<ActorsCubit>().getActors(
+                      search: _seachText.isEmpty ? null : _seachText,
+                    );
+              },
+              placeHolder: 'Search Actors',
+            ),
             const SizedBox(height: 12),
           ],
         ),

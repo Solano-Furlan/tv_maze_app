@@ -38,12 +38,15 @@ class _TvShowsScreenState extends State<TvShowsScreen> {
               fontSize: 32,
             ),
             const SizedBox(height: 8),
-            UISearchField(onSearchChanged: (String text) {
-              _seachText = text.trim();
-              context.read<TvShowsCubit>().getTvShows(
-                    search: _seachText.isEmpty ? null : _seachText,
-                  );
-            }),
+            UISearchField(
+              onSearchChanged: (String text) {
+                _seachText = text.trim();
+                context.read<TvShowsCubit>().getTvShows(
+                      search: _seachText.isEmpty ? null : _seachText,
+                    );
+              },
+              placeHolder: 'Search Tv Shows',
+            ),
             const SizedBox(height: 12),
           ],
         ),
