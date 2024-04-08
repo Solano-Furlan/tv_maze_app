@@ -48,7 +48,7 @@ class FavoriteTvShowsCubit extends Cubit<FavoriteTvShowsState> {
           await localTvShowsRepository.getFavoriteTvShows();
 
       emit(FavoriteTvShowsLoadedState(
-        tvShows: tvShows,
+        tvShows: tvShows..sort((a, b) => (a.name).compareTo((b.name))),
         tvShowsLength: tvShows.length,
       ));
     } catch (_) {
@@ -63,7 +63,8 @@ class FavoriteTvShowsCubit extends Cubit<FavoriteTvShowsState> {
     if (currentState is FavoriteTvShowsLoadedState) {
       emit(
         FavoriteTvShowsLoadedState(
-          tvShows: [tvShow, ...currentState.tvShows],
+          tvShows: [tvShow, ...currentState.tvShows]
+            ..sort((a, b) => (a.name).compareTo((b.name))),
           tvShowsLength: currentState.tvShows.length,
         ),
       );

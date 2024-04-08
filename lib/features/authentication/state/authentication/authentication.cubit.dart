@@ -20,8 +20,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         authPin: authPin,
       );
 
-      print(isAuthenticated);
-
       if (!isAuthenticated) {
         throw Exception();
       }
@@ -48,7 +46,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       emit(AuthenticationAuthorizedState());
       return state;
     } catch (e) {
-      print(e);
       emit(AuthenticationErrorState());
       return state;
     }
