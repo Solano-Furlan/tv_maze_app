@@ -58,8 +58,8 @@ The core 'design_system' folder was implemented to manage common components, col
 * State: example.state.dart; example.cubit.dart; example.cubit.unit_test.dart;
 * Presentation: example.screen.dart; example.widget.dart;
   
-
-
+## Download & Install
+* [Android .apk file](https://drive.google.com/file/d/1tlGzfbegj8DT-WvZXkHSuDQ61WbOvfqM/view?usp=sharing)
 
 
 A few resources to get you started if this is your first Flutter project:
