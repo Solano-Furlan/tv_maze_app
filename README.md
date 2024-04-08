@@ -52,7 +52,7 @@ Event Bus was implemented to facilitate smooth communication between various Cub
 ## Design System
 The core 'design_system' folder was implemented to manage common components, color palettes, and themes, streamlining the design process and ensuring consistency across the application. This folder houses essential UI elements like buttons, cards, and input fields, all designed to adhere to established design guidelines and facilitate easy reuse throughout various screens and features.
 
-## File naming conventions:
+## File naming conventions
 * Domain: example.interface.dart; example.enum.dart example.dto.dart; example.repository.interface.dart;
 * Data: example.repository.dart; example.repository.normalizer.dart; example.repository.unit_test.dart;
 * State: example.state.dart; example.cubit.dart; example.cubit.unit_test.dart;
