@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tv_maze_app/core/dependencies/dependencies.dart';
 import 'package:tv_maze_app/core/design_system/theme/colors.dart';
 import 'package:tv_maze_app/core/design_system/widgets/fields/search_field.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/indicators/error_indicator.widget.dart';
@@ -9,6 +10,7 @@ import 'package:tv_maze_app/core/design_system/widgets/layouts/main_header.widge
 import 'package:tv_maze_app/core/design_system/widgets/layouts/main_scaffold.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/pagination/infinity_scroll_pagination.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/texts/header_text.widget.dart';
+import 'package:tv_maze_app/core/navigation/services/navigation.service.dart';
 import 'package:tv_maze_app/features/actors/presentation/widgets/actor_card.widget.dart';
 import 'package:tv_maze_app/features/actors/state/actors/actors.cubit.dart';
 import 'package:tv_maze_app/features/actors/state/actors/actors.state.dart';
@@ -58,7 +60,10 @@ class _ActorsScreenState extends State<ActorsScreen> {
               bottomExtraSpace: 100,
               itemsLenght: state.actors.length,
               itemBuilder: (BuildContext context, int index) => ActorCard(
-                onPressed: () {},
+                onPressed: () =>
+                    getIt<AppNavigationService>().routeToSelectedActor(
+                  actorId: state.actors[index].id,
+                ),
                 actor: state.actors[index],
               ),
               onFetchMore: context.read<ActorsCubit>().getActorsNextPage,

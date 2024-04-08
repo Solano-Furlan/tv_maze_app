@@ -54,6 +54,29 @@ class CloudTvShowsRepository extends ICloudTvShowsRepository {
   }
 
   @override
+  Future<List<ITvShow>> getActorTvShows({
+    required String actorId,
+  }) async {
+    final List<ITvShow> tvShows = [];
+
+    final Response<dynamic> res = await httpClient.get(
+      '/people/$actorId/crewcredits?embed=show',
+    );
+
+    for (final Map<String, dynamic> mapData in res.data) {
+      if (mapData['_embedded']?['show'] != null) {
+        tvShows.add(
+          TvShowsRepositoryNormalizer.tvShowFromMap(
+            mapData: mapData['_embedded']?['show'],
+          ),
+        );
+      }
+    }
+
+    return tvShows;
+  }
+
+  @override
   Future<ITvShow> getTvShow({
     required String tvShowId,
   }) async {

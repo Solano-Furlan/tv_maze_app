@@ -62,6 +62,13 @@ class AppNavigationService {
         ActorsRoutes.actorsRoute,
       );
 
+  void routeToSelectedActor({
+    required String actorId,
+  }) =>
+      _routeTo(
+        ActorsRoutes.selectedActorRoute(actorId: actorId),
+      );
+
   void routeToSettings() => _routeTo(
         SettingsRoute.settingsRoute,
       );

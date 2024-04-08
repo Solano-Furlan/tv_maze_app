@@ -51,4 +51,19 @@ class ActorsRepository extends IActorRepository {
 
     return actors;
   }
+
+  @override
+  Future<IActor> getActor({
+    required String actorId,
+  }) async {
+    final Response<dynamic> res = await httpClient.get(
+      '/people/$actorId',
+    );
+
+    final IActor actor = ActorsRepositoryNormalizer.actorFromMap(
+      mapData: res.data,
+    );
+
+    return actor;
+  }
 }

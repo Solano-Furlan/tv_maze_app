@@ -7,4 +7,7 @@ abstract class IActorRepository {
   Future<List<IActor>> getActorsWithSearch({
     required String search,
   });
+  Future<IActor> getActor({
+    required String actorId,
+  });
 }

@@ -8,6 +8,10 @@ abstract class ICloudTvShowsRepository {
   Future<List<ITvShow>> getTvShowsWithSearch({
     required String search,
   });
+
+  Future<List<ITvShow>> getActorTvShows({
+    required String actorId,
+  });
   Future<ITvShow> getTvShow({
     required String tvShowId,
   });
