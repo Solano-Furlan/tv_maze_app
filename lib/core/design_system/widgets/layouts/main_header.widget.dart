@@ -3,7 +3,6 @@ import 'package:glass_kit/glass_kit.dart';
 import 'package:tv_maze_app/core/dependencies/dependencies.dart';
 import 'package:tv_maze_app/core/design_system/helpers/asset_svgs.helper.dart';
 import 'package:tv_maze_app/core/design_system/theme/colors.dart';
-import 'package:tv_maze_app/core/design_system/widgets/buttons/core_button.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/buttons/icon_button.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/texts/text.widget.dart';
 import 'package:tv_maze_app/core/navigation/services/navigation.service.dart';
@@ -62,35 +61,32 @@ class UIMainHeader extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          UICoreButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: 40,
-                                  width: 40,
-                                  decoration: const BoxDecoration(
-                                    color: AppColors.dark1,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: const Text(
-                                    '🍿',
-                                    style: TextStyle(
-                                      fontSize: 24,
-                                    ),
+                          Row(
+                            children: [
+                              Container(
+                                height: 40,
+                                width: 40,
+                                decoration: const BoxDecoration(
+                                  color: AppColors.dark1,
+                                  shape: BoxShape.circle,
+                                ),
+                                alignment: Alignment.center,
+                                child: const Text(
+                                  '🍿',
+                                  style: TextStyle(
+                                    fontSize: 24,
                                   ),
                                 ),
-                                const SizedBox(width: 8),
-                                const UIText(
-                                  'MazeTv',
-                                  maxLines: 1,
-                                  color: AppColors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ],
-                            ),
+                              ),
+                              const SizedBox(width: 8),
+                              const UIText(
+                                'MazeTv',
+                                maxLines: 1,
+                                color: AppColors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ],
                           ),
                           const Spacer(),
                           UIIconButton(
