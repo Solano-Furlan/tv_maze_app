@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:tv_maze_app/features/actors/data/normalizers/actors.repository.normalizer.dart';
-import 'package:tv_maze_app/features/actors/domain/actor.interface.dart';
-import 'package:tv_maze_app/features/actors/domain/actor.repository.interface.dart';
+import 'package:tv_maze_app/features/actors/domain/models/actor.model.dart';
+import 'package:tv_maze_app/features/actors/domain/interfaces/actor.repository.interface.dart';
 
 class ActorsRepository extends IActorRepository {
   ActorsRepository({
@@ -11,10 +11,10 @@ class ActorsRepository extends IActorRepository {
   final Dio httpClient;
 
   @override
-  Future<List<IActor>> getActors({
+  Future<List<Actor>> getActors({
     required int page,
   }) async {
-    final List<IActor> actors = [];
+    final List<Actor> actors = [];
 
     final Response<dynamic> res = await httpClient.get(
       '/people?page=$page',
@@ -32,10 +32,10 @@ class ActorsRepository extends IActorRepository {
   }
 
   @override
-  Future<List<IActor>> getActorsWithSearch({
+  Future<List<Actor>> getActorsWithSearch({
     required String search,
   }) async {
-    final List<IActor> actors = [];
+    final List<Actor> actors = [];
 
     final Response<dynamic> res = await httpClient.get(
       '/search/people?q=$search',
@@ -53,14 +53,14 @@ class ActorsRepository extends IActorRepository {
   }
 
   @override
-  Future<IActor> getActor({
+  Future<Actor> getActor({
     required String actorId,
   }) async {
     final Response<dynamic> res = await httpClient.get(
       '/people/$actorId',
     );
 
-    final IActor actor = ActorsRepositoryNormalizer.actorFromMap(
+    final Actor actor = ActorsRepositoryNormalizer.actorFromMap(
       mapData: res.data,
     );
 

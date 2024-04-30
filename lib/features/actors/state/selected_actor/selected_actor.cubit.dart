@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze_app/features/actors/data/data/actors.repository.dart';
-import 'package:tv_maze_app/features/actors/domain/actor.interface.dart';
+import 'package:tv_maze_app/features/actors/domain/models/actor.model.dart';
 import 'package:tv_maze_app/features/actors/state/selected_actor/selected_actor.state.dart';
 import 'package:tv_maze_app/features/tv_shows/data/repositories/cloud_tv_shows.repository.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 
 class SelectedActorCubit extends Cubit<SelectedActorState> {
   SelectedActorCubit({
@@ -22,12 +22,11 @@ class SelectedActorCubit extends Cubit<SelectedActorState> {
     try {
       emit(SelectedActorLoadingState());
 
-      final IActor actor = await actorsRepository.getActor(
+      final Actor actor = await actorsRepository.getActor(
         actorId: actorId,
       );
 
-      final List<ITvShow> tvShows =
-          await cloudTvShowsRepository.getActorTvShows(
+      final List<TvShow> tvShows = await cloudTvShowsRepository.getActorTvShows(
         actorId: actorId,
       );
 

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class IEpisode extends Equatable {
-  const IEpisode({
+class Episode extends Equatable {
+  const Episode({
     required this.id,
     required this.name,
     required this.description,

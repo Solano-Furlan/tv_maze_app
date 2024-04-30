@@ -7,7 +7,7 @@ import 'package:tv_maze_app/core/design_system/widgets/images/network_image.widg
 import 'package:tv_maze_app/core/design_system/widgets/layouts/divider.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/texts/text.widget.dart';
 import 'package:tv_maze_app/core/helpers/date.helper.dart';
-import 'package:tv_maze_app/features/actors/domain/actor.interface.dart';
+import 'package:tv_maze_app/features/actors/domain/models/actor.model.dart';
 
 class ActorCard extends StatelessWidget {
   const ActorCard({
@@ -18,7 +18,7 @@ class ActorCard extends StatelessWidget {
   });
 
   final VoidCallback onPressed;
-  final IActor actor;
+  final Actor actor;
   final UIIconButton? iconButton;
 
   @override

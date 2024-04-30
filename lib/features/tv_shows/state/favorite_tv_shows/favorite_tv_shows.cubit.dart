@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze_app/core/event_bus/event_bus.service.dart';
 import 'package:tv_maze_app/features/tv_shows/data/repositories/local_tv_shows.repository.dart';
 import 'package:tv_maze_app/features/tv_shows/domain/events/tv_shows.events.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 import 'package:tv_maze_app/features/tv_shows/state/favorite_tv_shows/favorite_tv_shows.state.dart';
 
 class FavoriteTvShowsCubit extends Cubit<FavoriteTvShowsState> {
@@ -44,7 +44,7 @@ class FavoriteTvShowsCubit extends Cubit<FavoriteTvShowsState> {
     try {
       emit(FavoriteTvShowsLoadingState());
 
-      final List<ITvShow> tvShows =
+      final List<TvShow> tvShows =
           await localTvShowsRepository.getFavoriteTvShows();
 
       emit(FavoriteTvShowsLoadedState(
@@ -57,7 +57,7 @@ class FavoriteTvShowsCubit extends Cubit<FavoriteTvShowsState> {
   }
 
   void _favoriteTvShowAdded({
-    required ITvShow tvShow,
+    required TvShow tvShow,
   }) {
     final FavoriteTvShowsState currentState = state;
     if (currentState is FavoriteTvShowsLoadedState) {
@@ -80,7 +80,7 @@ class FavoriteTvShowsCubit extends Cubit<FavoriteTvShowsState> {
         FavoriteTvShowsLoadedState(
           tvShows: currentState.tvShows
               .where(
-                (ITvShow e) => e.id != tvShowId,
+                (TvShow e) => e.id != tvShowId,
               )
               .toList(),
           tvShowsLength: currentState.tvShows.length,

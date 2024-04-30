@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze_app/features/tv_shows/data/repositories/cloud_tv_shows.repository.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 import 'package:tv_maze_app/features/tv_shows/state/tv_shows/tv_shows.state.dart';
 
 class TvShowsCubit extends Cubit<TvShowsState> {
@@ -13,7 +13,7 @@ class TvShowsCubit extends Cubit<TvShowsState> {
   Future<void> getTvShows({
     required String? search,
   }) async {
-    List<ITvShow> tvShows = [];
+    List<TvShow> tvShows = [];
     try {
       emit(TvShowsLoadingState());
 
@@ -46,7 +46,7 @@ class TvShowsCubit extends Cubit<TvShowsState> {
   Future<void> getTvShowsNextPage() async {
     final TvShowsState currentState = state;
     if (currentState is TvShowsLoadedState) {
-      final List<ITvShow> newTvShows = await cloudTvShowsRepository.getTvShows(
+      final List<TvShow> newTvShows = await cloudTvShowsRepository.getTvShows(
         page: 1,
       );
 

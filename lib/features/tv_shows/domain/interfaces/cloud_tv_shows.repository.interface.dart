@@ -1,21 +1,21 @@
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/episode.interface.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/episode.model.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 
 abstract class ICloudTvShowsRepository {
-  Future<List<ITvShow>> getTvShows({
+  Future<List<TvShow>> getTvShows({
     required int page,
   });
-  Future<List<ITvShow>> getTvShowsWithSearch({
+  Future<List<TvShow>> getTvShowsWithSearch({
     required String search,
   });
 
-  Future<List<ITvShow>> getActorTvShows({
+  Future<List<TvShow>> getActorTvShows({
     required String actorId,
   });
-  Future<ITvShow> getTvShow({
+  Future<TvShow> getTvShow({
     required String tvShowId,
   });
-  Future<List<IEpisode>> getTvShowEpisodes({
+  Future<List<Episode>> getTvShowEpisodes({
     required String tvShowId,
   });
 }

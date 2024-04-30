@@ -3,7 +3,7 @@ import 'package:tv_maze_app/core/design_system/theme/colors.dart';
 import 'package:tv_maze_app/core/design_system/widgets/images/network_image.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/texts/text.widget.dart';
 import 'package:tv_maze_app/core/helpers/date.helper.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/episode.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/episode.model.dart';
 
 class EpisodeBottomSheetContent extends StatelessWidget {
   const EpisodeBottomSheetContent({
@@ -13,7 +13,7 @@ class EpisodeBottomSheetContent extends StatelessWidget {
   });
 
   final int index;
-  final IEpisode episode;
+  final Episode episode;
 
   @override
   Widget build(BuildContext context) {

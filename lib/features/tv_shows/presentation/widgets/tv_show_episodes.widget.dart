@@ -10,7 +10,7 @@ import 'package:tv_maze_app/core/design_system/widgets/texts/header_text.widget.
 import 'package:tv_maze_app/core/design_system/widgets/texts/text.widget.dart';
 import 'package:tv_maze_app/core/helpers/date.helper.dart';
 import 'package:tv_maze_app/core/navigation/services/dialogs.service.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/episode.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/episode.model.dart';
 import 'package:tv_maze_app/features/tv_shows/presentation/widgets/episode_bottom_sheet_content.widget.dart';
 
 class TvShowEpsisodes extends StatefulWidget {
@@ -19,7 +19,7 @@ class TvShowEpsisodes extends StatefulWidget {
     super.key,
   });
 
-  final List<IEpisode> episodes;
+  final List<Episode> episodes;
 
   @override
   State<TvShowEpsisodes> createState() => _TvShowEpsisodesState();
@@ -27,13 +27,13 @@ class TvShowEpsisodes extends StatefulWidget {
 
 class _TvShowEpsisodesState extends State<TvShowEpsisodes> {
   late final List<int> _seasons =
-      widget.episodes.map((IEpisode e) => e.season).toList().toSet().toList();
+      widget.episodes.map((Episode e) => e.season).toList().toSet().toList();
   late int _selectedSeason = _seasons.first;
 
   @override
   Widget build(BuildContext context) {
-    List<IEpisode> selectedEpisodes = widget.episodes
-        .where((IEpisode e) => e.season == _selectedSeason)
+    List<Episode> selectedEpisodes = widget.episodes
+        .where((Episode e) => e.season == _selectedSeason)
         .toList();
 
     return Padding(
@@ -94,7 +94,7 @@ class _TvShowEpsisodesState extends State<TvShowEpsisodes> {
   }
 
   Widget _buildEpisode({
-    required IEpisode episode,
+    required Episode episode,
     required int index,
     required bool isLastIndex,
   }) {

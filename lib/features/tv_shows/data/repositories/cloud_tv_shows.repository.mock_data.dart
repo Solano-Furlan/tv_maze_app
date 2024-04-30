@@ -1,6 +1,6 @@
 import 'package:tv_maze_app/features/tv_shows/data/normalizers/tv_shows.repository.normalizer.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/episode.interface.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/episode.model.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 
 class CloudTvShowsRepositoryMockData {
   CloudTvShowsRepositoryMockData._();
@@ -126,12 +126,12 @@ class CloudTvShowsRepositoryMockData {
     },
   ];
 
-  static final List<ITvShow> tvShows = tvShowsMapData
+  static final List<TvShow> tvShows = tvShowsMapData
       .map((Map<String, dynamic> mapData) =>
           TvShowsRepositoryNormalizer.tvShowFromMap(mapData: mapData))
       .toList();
 
-  static final List<IEpisode> episodes = episodesMap
+  static final List<Episode> episodes = episodesMap
       .map((Map<String, dynamic> mapData) =>
           TvShowsRepositoryNormalizer.episodeFromMap(mapData: mapData))
       .toList();

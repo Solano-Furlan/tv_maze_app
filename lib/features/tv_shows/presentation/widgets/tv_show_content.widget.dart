@@ -4,7 +4,7 @@ import 'package:tv_maze_app/core/design_system/theme/colors.dart';
 import 'package:tv_maze_app/core/design_system/widgets/cards/label_card.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/texts/header_text.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/texts/text.widget.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 import 'package:tv_maze_app/features/tv_shows/presentation/widgets/tv_show_episodes.widget.dart';
 
 class TvShowContent extends StatelessWidget {
@@ -13,7 +13,7 @@ class TvShowContent extends StatelessWidget {
     super.key,
   });
 
-  final ITvShow tvShow;
+  final TvShow tvShow;
 
   @override
   Widget build(BuildContext context) {

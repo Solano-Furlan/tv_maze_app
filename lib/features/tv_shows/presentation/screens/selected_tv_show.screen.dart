@@ -11,7 +11,7 @@ import 'package:tv_maze_app/core/design_system/widgets/indicators/error_indicato
 import 'package:tv_maze_app/core/design_system/widgets/indicators/loading_indicator.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/layouts/main_scaffold.widget.dart';
 import 'package:tv_maze_app/core/navigation/services/dialogs.service.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 import 'package:tv_maze_app/features/tv_shows/presentation/widgets/tv_show_content.widget.dart';
 import 'package:tv_maze_app/features/tv_shows/state/favorite_tv_shows_crud/favorite_tv_shows_crud.cubit.dart';
 import 'package:tv_maze_app/features/tv_shows/state/favorite_tv_shows_crud/favorite_tv_shows_crud.state.dart';
@@ -91,7 +91,7 @@ class SelectedTvShowScreen extends StatelessWidget {
   }
 
   Future<void> _addFavoriteTvShow({
-    required ITvShow tvShow,
+    required TvShow tvShow,
     required BuildContext context,
   }) async {
     FavoriteTvShowsCrudState favoriteTvShowsCrudState =

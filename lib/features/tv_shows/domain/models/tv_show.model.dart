@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/episode.interface.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show_schedule.intertface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/episode.model.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show_schedule.model.dart';
 
-class ITvShow extends Equatable {
-  const ITvShow({
+class TvShow extends Equatable {
+  const TvShow({
     required this.id,
     required this.name,
     required this.featuredImageUrl,
@@ -24,13 +24,13 @@ class ITvShow extends Equatable {
   final DateTime? premieredAt;
   final DateTime? endedAt;
   final String? network;
-  final ITvShowSchedule? tvShowSchedule;
-  final List<IEpisode> episodes;
+  final TvShowSchedule? tvShowSchedule;
+  final List<Episode> episodes;
 
-  ITvShow copyWith({
-    List<IEpisode>? episodes,
+  TvShow copyWith({
+    List<Episode>? episodes,
   }) =>
-      ITvShow(
+      TvShow(
         id: id,
         name: name,
         featuredImageUrl: featuredImageUrl,

@@ -17,7 +17,7 @@ import 'package:tv_maze_app/core/event_bus/event_bus.service.dart';
 import 'package:tv_maze_app/core/navigation/services/dialogs.service.dart';
 import 'package:tv_maze_app/core/navigation/services/navigation.service.dart';
 import 'package:tv_maze_app/features/tv_shows/data/repositories/local_tv_shows.repository.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 import 'package:tv_maze_app/features/tv_shows/presentation/widgets/tv_show_card.widget.dart';
 import 'package:tv_maze_app/features/tv_shows/state/favorite_tv_shows/favorite_tv_shows.cubit.dart';
 import 'package:tv_maze_app/features/tv_shows/state/favorite_tv_shows/favorite_tv_shows.state.dart';
@@ -111,7 +111,7 @@ class _FavoriteTvShowsScreenState extends State<FavoriteTvShowsScreen> {
       );
 
   Widget _buildFavoriteTvShows({
-    required List<ITvShow> tvShows,
+    required List<TvShow> tvShows,
   }) {
     if (tvShows.isEmpty) {
       return const Padding(

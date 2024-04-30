@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze_app/core/event_bus/event_bus.service.dart';
 import 'package:tv_maze_app/features/tv_shows/data/repositories/cloud_tv_shows.repository.dart';
 import 'package:tv_maze_app/features/tv_shows/domain/events/tv_shows.events.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/episode.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/episode.model.dart';
 import 'package:tv_maze_app/features/tv_shows/domain/interfaces/local_tv_shows.repository.interface.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 import 'package:tv_maze_app/features/tv_shows/state/selected_tv_show/selected_tv_show.state.dart';
 
 class SelectedTvShowCubit extends Cubit<SelectedTvShowState> {
@@ -46,11 +46,11 @@ class SelectedTvShowCubit extends Cubit<SelectedTvShowState> {
     try {
       emit(SelectedTvShowLoadingState());
 
-      final ITvShow tvShow = await cloudTvShowsRepository.getTvShow(
+      final TvShow tvShow = await cloudTvShowsRepository.getTvShow(
         tvShowId: tvShowId,
       );
 
-      final List<IEpisode> tvShowEpisodes =
+      final List<Episode> tvShowEpisodes =
           await cloudTvShowsRepository.getTvShowEpisodes(
         tvShowId: tvShowId,
       );

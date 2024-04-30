@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 
 abstract class TvShowsState extends Equatable {}
 
@@ -15,7 +15,7 @@ class TvShowsLoadedState extends TvShowsState {
     required this.hasNextPage,
   });
 
-  final List<ITvShow> tvShows;
+  final List<TvShow> tvShows;
   final int currentPage;
   final bool hasNextPage;
 

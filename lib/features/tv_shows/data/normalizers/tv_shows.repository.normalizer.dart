@@ -1,16 +1,16 @@
 import 'package:tv_maze_app/core/environment/environment.service.dart';
 import 'package:tv_maze_app/core/helpers/html.helper.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/episode.interface.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show_schedule.intertface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/episode.model.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show_schedule.model.dart';
 
 class TvShowsRepositoryNormalizer {
   TvShowsRepositoryNormalizer._();
 
-  static ITvShow tvShowFromMap({
+  static TvShow tvShowFromMap({
     required Map<String, dynamic> mapData,
   }) =>
-      ITvShow(
+      TvShow(
         id: (mapData['id'] as int).toString(),
         name: mapData['name'] as String,
         featuredImageUrl: mapData['image']?['medium'] as String? ??
@@ -32,7 +32,7 @@ class TvShowsRepositoryNormalizer {
             : DateTime.parse(
                 mapData['ended'],
               ),
-        tvShowSchedule: ITvShowSchedule(
+        tvShowSchedule: TvShowSchedule(
           time: mapData['schedule']?['time'] as String?,
           days: mapData['schedule']?['days'] != null
               ? List<String>.from(mapData['schedule']?['days'])
@@ -42,10 +42,10 @@ class TvShowsRepositoryNormalizer {
         episodes: const [],
       );
 
-  static IEpisode episodeFromMap({
+  static Episode episodeFromMap({
     required Map<String, dynamic> mapData,
   }) =>
-      IEpisode(
+      Episode(
         id: (mapData['id'] as int).toString(),
         name: mapData['name'] as String,
         description: mapData['summary'] == null
@@ -61,7 +61,7 @@ class TvShowsRepositoryNormalizer {
             : null,
       );
 
-  static Map<String, dynamic> tvShowToMapData({required ITvShow tvShow}) =>
+  static Map<String, dynamic> tvShowToMapData({required TvShow tvShow}) =>
       <String, dynamic>{
         'id': int.parse(tvShow.id),
         'name': tvShow.name,

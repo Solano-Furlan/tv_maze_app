@@ -1,5 +1,5 @@
 import 'package:tv_maze_app/features/actors/data/normalizers/actors.repository.normalizer.dart';
-import 'package:tv_maze_app/features/actors/domain/actor.interface.dart';
+import 'package:tv_maze_app/features/actors/domain/models/actor.model.dart';
 
 class ActorsRepositoryMockData {
   ActorsRepositoryMockData._();
@@ -50,7 +50,7 @@ class ActorsRepositoryMockData {
     },
   ];
 
-  static final List<IActor> actors = actorsMapData
+  static final List<Actor> actors = actorsMapData
       .map((Map<String, dynamic> mapData) =>
           ActorsRepositoryNormalizer.actorFromMap(mapData: mapData))
       .toList();

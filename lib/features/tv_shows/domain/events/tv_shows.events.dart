@@ -1,12 +1,12 @@
 import 'package:tv_maze_app/core/event_bus/event_bus.service.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 
 class FavoriteTvShowAddedEvent extends EventBusMessage {
   FavoriteTvShowAddedEvent({
     required this.tvShow,
   });
 
-  final ITvShow tvShow;
+  final TvShow tvShow;
 }
 
 class FavoriteTvShowRemovedEvent extends EventBusMessage {

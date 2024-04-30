@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:tv_maze_app/features/tv_shows/data/normalizers/tv_shows.repository.normalizer.dart';
 import 'package:tv_maze_app/features/tv_shows/domain/interfaces/local_tv_shows.repository.interface.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 
 class LocalTvShowsRepository extends ILocalTvShowsRepository {
   LocalTvShowsRepository({
@@ -11,8 +11,8 @@ class LocalTvShowsRepository extends ILocalTvShowsRepository {
   final HiveInterface hive;
 
   @override
-  Future<List<ITvShow>> getFavoriteTvShows() async {
-    final List<ITvShow> favoriteTvShows = [];
+  Future<List<TvShow>> getFavoriteTvShows() async {
+    final List<TvShow> favoriteTvShows = [];
 
     final Box box = await Hive.openBox('favorite_tv_shows');
     final List<Map<String, dynamic>> data =
@@ -33,7 +33,7 @@ class LocalTvShowsRepository extends ILocalTvShowsRepository {
 
   @override
   Future<void> addFavoriteTvShow({
-    required ITvShow tvShow,
+    required TvShow tvShow,
   }) async {
     final Box<dynamic> box = await Hive.openBox('favorite_tv_shows');
 

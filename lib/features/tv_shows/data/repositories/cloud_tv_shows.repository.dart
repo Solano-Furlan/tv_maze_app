@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:tv_maze_app/features/tv_shows/data/normalizers/tv_shows.repository.normalizer.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/episode.interface.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/episode.model.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 import 'package:tv_maze_app/features/tv_shows/domain/interfaces/cloud_tv_shows.repository.interface.dart';
 
 class CloudTvShowsRepository extends ICloudTvShowsRepository {
@@ -12,10 +12,10 @@ class CloudTvShowsRepository extends ICloudTvShowsRepository {
   final Dio httpClient;
 
   @override
-  Future<List<ITvShow>> getTvShows({
+  Future<List<TvShow>> getTvShows({
     required int page,
   }) async {
-    final List<ITvShow> tvShows = [];
+    final List<TvShow> tvShows = [];
 
     final Response<dynamic> res = await httpClient.get(
       '/shows?page=$page',
@@ -33,10 +33,10 @@ class CloudTvShowsRepository extends ICloudTvShowsRepository {
   }
 
   @override
-  Future<List<ITvShow>> getTvShowsWithSearch({
+  Future<List<TvShow>> getTvShowsWithSearch({
     required String search,
   }) async {
-    final List<ITvShow> tvShows = [];
+    final List<TvShow> tvShows = [];
 
     final Response<dynamic> res = await httpClient.get(
       '/search/shows?q=$search',
@@ -54,10 +54,10 @@ class CloudTvShowsRepository extends ICloudTvShowsRepository {
   }
 
   @override
-  Future<List<ITvShow>> getActorTvShows({
+  Future<List<TvShow>> getActorTvShows({
     required String actorId,
   }) async {
-    final List<ITvShow> tvShows = [];
+    final List<TvShow> tvShows = [];
 
     final Response<dynamic> res = await httpClient.get(
       '/people/$actorId/crewcredits?embed=show',
@@ -77,14 +77,14 @@ class CloudTvShowsRepository extends ICloudTvShowsRepository {
   }
 
   @override
-  Future<ITvShow> getTvShow({
+  Future<TvShow> getTvShow({
     required String tvShowId,
   }) async {
     final Response<dynamic> res = await httpClient.get(
       '/shows/$tvShowId',
     );
 
-    final ITvShow tvShow = TvShowsRepositoryNormalizer.tvShowFromMap(
+    final TvShow tvShow = TvShowsRepositoryNormalizer.tvShowFromMap(
       mapData: res.data,
     );
 
@@ -92,10 +92,10 @@ class CloudTvShowsRepository extends ICloudTvShowsRepository {
   }
 
   @override
-  Future<List<IEpisode>> getTvShowEpisodes({
+  Future<List<Episode>> getTvShowEpisodes({
     required String tvShowId,
   }) async {
-    final List<IEpisode> episodes = [];
+    final List<Episode> episodes = [];
 
     final Response<dynamic> res = await httpClient.get(
       '/shows/$tvShowId/episodes',

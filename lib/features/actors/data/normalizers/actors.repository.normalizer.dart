@@ -1,13 +1,13 @@
 import 'package:tv_maze_app/core/environment/environment.service.dart';
-import 'package:tv_maze_app/features/actors/domain/actor.interface.dart';
+import 'package:tv_maze_app/features/actors/domain/models/actor.model.dart';
 
 class ActorsRepositoryNormalizer {
   ActorsRepositoryNormalizer._();
 
-  static IActor actorFromMap({
+  static Actor actorFromMap({
     required Map<String, dynamic> mapData,
   }) =>
-      IActor(
+      Actor(
         id: (mapData['id'] as int).toString(),
         name: mapData['name'] as String,
         imageUrl: mapData['image']?['medium'] as String? ??

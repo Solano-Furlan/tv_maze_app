@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:tv_maze_app/features/actors/domain/actor.interface.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/actors/domain/models/actor.model.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 
 abstract class SelectedActorState extends Equatable {}
 
@@ -15,8 +15,8 @@ class SelectedActorLoadedState extends SelectedActorState {
     required this.tvShows,
   });
 
-  final IActor actor;
-  final List<ITvShow> tvShows;
+  final Actor actor;
+  final List<TvShow> tvShows;
 
   @override
   List<Object?> get props => [

@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze_app/features/actors/data/data/actors.repository.dart';
-import 'package:tv_maze_app/features/actors/domain/actor.interface.dart';
+import 'package:tv_maze_app/features/actors/domain/models/actor.model.dart';
 import 'package:tv_maze_app/features/actors/state/actors/actors.state.dart';
 
 class ActorsCubit extends Cubit<ActorsState> {
@@ -13,7 +13,7 @@ class ActorsCubit extends Cubit<ActorsState> {
   Future<void> getActors({
     required String? search,
   }) async {
-    List<IActor> actors = [];
+    List<Actor> actors = [];
     try {
       emit(ActorsLoadingState());
 
@@ -46,7 +46,7 @@ class ActorsCubit extends Cubit<ActorsState> {
   Future<void> getActorsNextPage() async {
     final ActorsState currentState = state;
     if (currentState is ActorsLoadedState) {
-      final List<IActor> newActors = await actorsRepository.getActors(
+      final List<Actor> newActors = await actorsRepository.getActors(
         page: 1,
       );
 

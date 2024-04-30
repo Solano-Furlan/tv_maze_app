@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:tv_maze_app/features/actors/domain/actor.interface.dart';
+import 'package:tv_maze_app/features/actors/domain/models/actor.model.dart';
 
 abstract class ActorsState extends Equatable {}
 
@@ -15,7 +15,7 @@ class ActorsLoadedState extends ActorsState {
     required this.hasNextPage,
   });
 
-  final List<IActor> actors;
+  final List<Actor> actors;
   final int currentPage;
   final bool hasNextPage;
 

@@ -7,7 +7,7 @@ import 'package:tv_maze_app/core/design_system/widgets/cards/label_card.widget.d
 import 'package:tv_maze_app/core/design_system/widgets/images/network_image.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/layouts/divider.widget.dart';
 import 'package:tv_maze_app/core/design_system/widgets/texts/text.widget.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 
 class TvShowCard extends StatelessWidget {
   const TvShowCard({
@@ -18,7 +18,7 @@ class TvShowCard extends StatelessWidget {
   });
 
   final VoidCallback onPressed;
-  final ITvShow tvShow;
+  final TvShow tvShow;
   final UIIconButton? iconButton;
 
   @override

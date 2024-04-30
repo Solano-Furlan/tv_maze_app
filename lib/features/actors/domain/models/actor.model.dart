@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class IActor extends Equatable {
-  const IActor({
+class Actor extends Equatable {
+  const Actor({
     required this.id,
     required this.name,
     required this.imageUrl,

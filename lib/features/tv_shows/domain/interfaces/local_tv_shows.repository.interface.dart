@@ -1,9 +1,9 @@
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 
 abstract class ILocalTvShowsRepository {
-  Future<List<ITvShow>> getFavoriteTvShows();
+  Future<List<TvShow>> getFavoriteTvShows();
   Future<void> addFavoriteTvShow({
-    required ITvShow tvShow,
+    required TvShow tvShow,
   });
   Future<void> remodeFavoriteTvShow({
     required String tvShowId,

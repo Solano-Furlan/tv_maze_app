@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tv_maze_app/core/environment/environment.service.dart';
 import 'package:tv_maze_app/features/actors/data/data/actors.repository.dart';
 import 'package:tv_maze_app/features/actors/data/normalizers/actors.repository.normalizer.mock_data.dart';
-import 'package:tv_maze_app/features/actors/domain/actor.interface.dart';
+import 'package:tv_maze_app/features/actors/domain/models/actor.model.dart';
 
 void main() async {
   late Dio httpClient;
@@ -36,7 +36,7 @@ void main() async {
         ),
       );
 
-      final List<IActor> actors = await actorsRepository.getActors(
+      final List<Actor> actors = await actorsRepository.getActors(
         page: 1,
       );
 

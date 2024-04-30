@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class ITvShowSchedule extends Equatable {
-  const ITvShowSchedule({
+class TvShowSchedule extends Equatable {
+  const TvShowSchedule({
     required this.time,
     required this.days,
   });

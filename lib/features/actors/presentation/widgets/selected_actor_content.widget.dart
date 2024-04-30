@@ -6,8 +6,8 @@ import 'package:tv_maze_app/core/design_system/widgets/texts/header_text.widget.
 import 'package:tv_maze_app/core/design_system/widgets/texts/text.widget.dart';
 import 'package:tv_maze_app/core/helpers/date.helper.dart';
 import 'package:tv_maze_app/core/navigation/services/navigation.service.dart';
-import 'package:tv_maze_app/features/actors/domain/actor.interface.dart';
-import 'package:tv_maze_app/features/tv_shows/domain/interfaces/tv_show.interface.dart';
+import 'package:tv_maze_app/features/actors/domain/models/actor.model.dart';
+import 'package:tv_maze_app/features/tv_shows/domain/models/tv_show.model.dart';
 import 'package:tv_maze_app/features/tv_shows/presentation/widgets/tv_show_card.widget.dart';
 
 class SelectedActorContent extends StatelessWidget {
@@ -17,8 +17,8 @@ class SelectedActorContent extends StatelessWidget {
     super.key,
   });
 
-  final IActor actor;
-  final List<ITvShow> tvShows;
+  final Actor actor;
+  final List<TvShow> tvShows;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class SelectedActorContent extends StatelessWidget {
   }
 
   Widget _buildHeader({
-    required IActor actor,
+    required Actor actor,
   }) =>
       Container(
         width: double.infinity,
@@ -82,7 +82,7 @@ class SelectedActorContent extends StatelessWidget {
       );
 
   Widget _buildInfo({
-    required IActor actor,
+    required Actor actor,
   }) =>
       Padding(
         padding: const EdgeInsets.symmetric(
@@ -129,7 +129,7 @@ class SelectedActorContent extends StatelessWidget {
       );
 
   Widget _buildActorTvShows({
-    required List<ITvShow> tvShows,
+    required List<TvShow> tvShows,
   }) =>
       Padding(
         padding: const EdgeInsets.symmetric(
