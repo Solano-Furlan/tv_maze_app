@@ -23,8 +23,8 @@ TV Shows & Actors Search: Instantly find and save your favorite shows and actors
 ## Software Architecture
 Feature based clean architecture. Each feature has four layers/folders (domain, data, state, presentation):
 
-* Domain: Interfaces for data models, repository abstract interfaces, dtos, enum, events, etc.
-* Data: Data repositories & data normalizer (json to dart interfaces from the domain).
+* Domain: Interfaces for data models, repository abstract interfaces, models, dtos, enums, events, etc.
+* Data: Data repositories & data normalizer (json to dart models from the domain).
 * State: The state management is going to be Cubit, similar to Redux, where different states are emitted in the cubit class (loading, loaded/success,error). Then cubit builder is used in the presentation screen & widget to manage the app state. The repositories are injected to the cubit, so unit testing can easily be properly implemented.
 * Presentation: UI Screen & Widgets/Components
 
